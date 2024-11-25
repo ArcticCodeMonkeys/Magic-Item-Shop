@@ -1,0 +1,2279 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "Planerift",
+				"abbreviation": "PR",
+				"full": "Planerift",
+				"version": "1.0.0",
+				"color": "a00ad6"
+			}
+		]
+	},
+	"monster": [
+		{
+			"name": "Astrael Deus",
+			"size": [
+				"M"
+			],
+			"type": "humanoid",
+			"source": "Planerift",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"Robe of the Archmagi"
+					]
+				}
+			],
+			"hp": {
+				"formula": "17d10 + 88",
+				"average": 181
+			},
+			"speed": {
+				"walk": 30,
+				"fly": {
+					"number": 30,
+					"condition": "(hover)"
+				},
+				"canHover": true
+			},
+			"str": 10,
+			"dex": 18,
+			"con": 14,
+			"int": 20,
+			"wis": 18,
+			"cha": 10,
+			"passive": 10,
+			"cr": "14",
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"isNamedCreature": true,
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"If Astrael fails a saving throw, he can choose to succeed instead."
+					]
+				},
+				{
+					"name": "Magic Items",
+					"entries": [
+						"Astrael Deus is equipped with the following assortment of magical items: Robe of the Archmagi, Radiant Absorbing Tattoo, +2 Spellcasting Focus"
+					]
+				}
+			],
+			"save": {
+				"dex": "+9",
+				"int": "+10"
+			},
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Astrael is a 14th level spellcaster, with Spell Save {@dc 19}, and a {@hit +12} to hit."
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell guidance}",
+								"{@spell light}",
+								"{@spell resistance}",
+								"{@spell sacred flame}",
+								"{@spell spare the dying}",
+								"{@spell word of radiance|XGE}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell command}",
+								"{@spell cure wounds}",
+								"{@spell divine favor}",
+								"{@spell guiding bolt}",
+								"{@spell shield}",
+								"{@spell shield of faith}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell hold person}",
+								"{@spell lesser restoration}",
+								"{@spell mirror image}",
+								"{@spell moonbeam}",
+								"{@spell see invisibility}",
+								"{@spell spiritual weapon}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell crusader's mantle}",
+								"{@spell dispel magic}",
+								"{@spell mass healing word}",
+								"{@spell spirit guardians}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell aura of purity}",
+								"{@spell death ward}",
+								"{@spell guardian of faith}"
+							],
+							"slots": 3
+						},
+						"5": {
+							"spells": [
+								"{@spell destructive wave}",
+								"{@spell dominate person}",
+								"{@spell flame strike}",
+								"{@spell greater restoration}",
+								"{@spell wall of light|XGE}"
+							],
+							"slots": 2
+						},
+						"6": {
+							"spells": [
+								"{@spell contingency}",
+								"{@spell heal}"
+							],
+							"slots": 1
+						},
+						"7": {
+							"spells": [
+								"{@spell plane shift}"
+							],
+							"slots": 1
+						}
+					},
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"O"
+			],
+			"reaction": [
+				{
+					"name": "Radiant Absorption",
+					"entries": [
+						"When Astrael takes radiant damage, he can use his reaction to gain immunity against that instance of the damage, and he regains a number of hit points equal to half the damage he ",
+						"would have taken. Once this reaction is used, it can't be used again until the next dawn."
+					]
+				},
+				{
+					"name": "Deflect Attack",
+					"entries": [
+						"When Astrael is hit with an attack, he can roll {@dice 1d10 + 4}, reducing the attack's damage by that amount. If he reduces the damage to 0, he can redirect the attack against a different creature within 10ft (other than the attacker). Astael can also expend a Legendary Resistance to reduce the damage to 0 automatically."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Word of Compassion",
+					"entries": [
+						"Astrael's voice whispers in a creature's ear within 30ft of him, compelling them to lower their weapons and accept his salvation. The target must succeed a {@dc 19} Wisdom Saving Throw. On a failed save, the creature is {@condition charmed}. While {@condition charmed}, the creature treats Astrael as if he is under the effect of {@spell Sanctuary}. The creature can repeat the save at the start of each of their turns, ending the effect on a success. A creature who is not {@condition charmed} can also use its bonus action to attempt to assist a {@condition charmed} creature, making a {@dc 19} Charisma (Persuasion) check, ending the charm on a success."
+					]
+				},
+				{
+					"name": "Step into the Light",
+					"entries": [
+						"Astrael summons a pillar of light upon himself, stepping into the light before reappearing in a second pillar of light at a point within 30ft of him. Any creature within 5 feet of the point where Astrael disappears and reappears from must succeed a {@dc 16} Dexterity Saving Throw or take {@damage 1d10} radiant damage."
+					]
+				}
+			],
+			"conditionInflict": [
+				"charmed"
+			],
+			"action": [
+				{
+					"name": "Grasp of Salvation",
+					"entries": [
+						"{@recharge 5} {@atk mw} {@hit 12} to hit, reach 5 ft., one target. {@h}55 ({@damage 10d6 + 20}) radiant damage. If this damage reduces the target to 0 hit points, its body and everything it is wearing (except magic items) are disintegrated as its soul is taken to the Crystal of Souls."
+					]
+				}
+			],
+			"miscTags": [
+				"MW"
+			],
+			"languages": [
+				"Common",
+				"Celestial"
+			],
+			"languageTags": [
+				"C",
+				"CE"
+			],
+			"senses": [
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"SD"
+			],
+			"resist": [
+				"radiant"
+			],
+			"conditionImmune": [
+				"charmed",
+				"exhaustion",
+				"prone"
+			],
+			"damageTags": [
+				"R"
+			],
+			"damageTagsSpell": [
+				"F",
+				"N",
+				"O",
+				"R",
+				"T"
+			],
+			"savingThrowForced": [
+				"dexterity",
+				"wisdom"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"constitution",
+				"dexterity",
+				"wisdom"
+			]
+		},
+		{
+			"name": "Osmo Spellweaver",
+			"source": "Planerift",
+			"page": 261,
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid"
+			},
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				11,
+				{
+					"ac": 15,
+					"condition": "with {@spell mage armor}",
+					"braces": true
+				}
+			],
+			"hp": {
+				"formula": "9d6 + 18",
+				"average": 49
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 8,
+			"dex": 14,
+			"con": 14,
+			"int": 20,
+			"wis": 14,
+			"cha": 8,
+			"skill": {
+				"arcana": "+6",
+				"history": "+6"
+			},
+			"passive": 12,
+			"languages": [
+				"any four languages"
+			],
+			"cr": "6",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"The diviner casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 16}):"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell mage hand}",
+								"{@spell mending}",
+								"{@spell message}",
+								"{@spell ray of frost}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell absorb elements|XGE}",
+								"{@spell find familiar}",
+								"{@spell ice knife|XGE}",
+								"{@spell mage armor}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell blindness/deafness}",
+								"{@spell rime's binding ice|FTD}",
+								"{@spell web}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell call lightning}",
+								"{@spell counterspell}",
+								"{@spell dispel magic}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell dimension door}"
+							],
+							"slots": 2
+						},
+						"5": {
+							"spells": [
+								"{@spell wall of force}"
+							],
+							"slots": 1
+						}
+					},
+					"ability": "int",
+					"type": "spellcasting"
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Osmo makes three Arcane Burst attacks."
+					]
+				},
+				{
+					"name": "Arcane Burst",
+					"entries": [
+						"{@atk ms,rs} {@hit 6} to hit, reach 5 ft. or range 120 ft., one target. {@h}15 ({@damage 2d10 + 4}) force damage. Alternatively, Osmo can alter the location of the bolt just before impact, dealing no damage but instead teleporting the target up to 15ft in a direction of Osmo's Choosing"
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Portent (3/Day)",
+					"entries": [
+						"When the diviner or a creature it can see makes an attack roll, a saving throw, or an ability check, the diviner rolls a {@dice d20} and chooses whether to use that roll in place of the {@dice d20} rolled for the attack roll, saving throw, or ability check. "
+					]
+				}
+			],
+			"environment": [
+				"urban"
+			],
+			"soundClip": {
+				"type": "external",
+				"url": "https://5e.tools/audio/bestiary/diviner.mp3"
+			},
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"X"
+			],
+			"spellcastingTags": [
+				"O"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"token": {
+				"name": "Diviner Wizard",
+				"source": "MPMM"
+			},
+			"fluff": {
+				"name": "Diviner Wizard",
+				"source": "MPMM",
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "bestiary/MPMM/Diviner Wizard.webp"
+						},
+						"credit": "Alix Branwyn"
+					}
+				],
+				"entries": [
+					{
+						"type": "entries",
+						"entries": [
+							"Diviners peer into the future and know that knowledge is power. They might act aloof and mysterious, hinting at omens and secrets, or they might be know-it-alls, spilling insights to advance their own status."
+						]
+					},
+					{
+						"type": "section",
+						"name": "Wizards",
+						"entries": [
+							"Wizards pursue magical power through the study of arcane texts. Some travel the world searching for esoteric tomes while others train lesser wizards or collaborate with colleagues to create new spells."
+						]
+					}
+				]
+			},
+			"trait": [
+				{
+					"name": "Balanced Odds",
+					"entries": [
+						"If Osmo rolls a natural 1 or natural 20, it is instead treated as an 11."
+					]
+				}
+			],
+			"save": {
+				"int": "+8",
+				"wis": "+5"
+			},
+			"damageTags": [
+				"O"
+			],
+			"damageTagsSpell": [
+				"C",
+				"F",
+				"L",
+				"O",
+				"P"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity"
+			]
+		},
+		{
+			"name": "Valorheart",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "Planerift",
+			"page": 228,
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human",
+					"paladin"
+				]
+			},
+			"alignment": [
+				"L",
+				"G"
+			],
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"{@item +1 plate armor|PHB}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "9d10 + 18",
+				"average": 67
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 18,
+			"dex": 12,
+			"con": 14,
+			"int": 10,
+			"wis": 8,
+			"cha": 18,
+			"passive": 9,
+			"conditionImmune": [
+				"frightened"
+			],
+			"languages": [
+				"Common",
+				"Dwarvish"
+			],
+			"cr": "7",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Strongheart casts one of the following spells, using Charisma as the spellcasting ability (spell save {@dc 15}):"
+					],
+					"spells": {
+						"1": {
+							"spells": [
+								"{@spell bless}",
+								"{@spell command}",
+								"{@spell compelled duel}",
+								"{@spell cure wounds}",
+								"{@spell guiding bolt}",
+								"{@spell heroism}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell enhance ability}",
+								"{@spell lesser restoration}",
+								"{@spell magic weapon}",
+								"{@spell warding bond}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell aura of vitality}",
+								"{@spell crusader's mantle}",
+								"{@spell haste}",
+								"{@spell protection from energy}"
+							],
+							"slots": 2
+						}
+					},
+					"ability": "cha",
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "Special Equipment",
+					"entries": [
+						"Strongheart wields Steel, a sentient, lawful good longsword (see appendix A)."
+					]
+				},
+				{
+					"name": "Divine Smite",
+					"entries": [
+						"Whenever Lord Valorheart hits with a melee weapon attack, he can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is {@dice 2d8} for a 1st-level spell slot, plus {@dice 1d8} for each spell level higher than 1st, to a maximum of {@dice 5d8}. ",
+						"1st: {@dice 2d8}",
+						"2nd: {@dice 3d8}",
+						"3rd: {@dice 4d8}"
+					]
+				},
+				{
+					"name": "Aura of Courage",
+					"entries": [
+						"Lord Valorheart has an Aura of Courage emanating from him in a radius of 15ft. All creatures within the aura gain a +4 bonus to saving throws and are under the effects of Heroism Spell (+4 Temp Hitpoints)"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Strongheart makes two Greatsword attacks."
+					]
+				},
+				{
+					"name": "+2 Greatsword",
+					"entries": [
+						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d6 + 6}) slashing damage."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Rallying Strike",
+					"entries": [
+						"When a creature within Lord Valorheart's Aura of Courage starts their turn, he can use his reaction to rally them, allowing them to make a weapon attack. "
+					]
+				}
+			],
+			"attachedItems": [
+				"+2 greatsword|dmg"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"C",
+				"D"
+			],
+			"spellcastingTags": [
+				"O"
+			],
+			"miscTags": [
+				"MW",
+				"MLW"
+			],
+			"conditionInflictSpell": [
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"token": {
+				"name": "Strongheart",
+				"source": "WBtW"
+			},
+			"fluff": {
+				"name": "Strongheart",
+				"source": "WBtW",
+				"entries": [
+					{
+						"type": "entries",
+						"entries": [
+							"Strongheart is a fearless seeker of justice, risking his life to ensure that good triumphs over evil. He is thoughtful, kind, and seldom rash, yet never hesitant to punish those who spit in the face of law and order.",
+							"Strongheart doesn't worship a god but devotes himself to an ideal: that the world can be spared from evil by those who have enough courage to stand against it."
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "bestiary/WBtW/Strongheart.webp"
+						},
+						"credit": "Daarken"
+					}
+				]
+			},
+			"save": {
+				"cha": "+7",
+				"str": "+7"
+			},
+			"skill": {
+				"persuasion": "+7",
+				"performance": "+7",
+				"religion": "+3"
+			},
+			"damageTags": [
+				"S"
+			],
+			"damageTagsSpell": [
+				"R"
+			],
+			"savingThrowForcedSpell": [
+				"wisdom"
+			]
+		},
+		{
+			"name": "Ignatius Emberkov",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "Planerift",
+			"page": 33,
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"dragonborn"
+				]
+			},
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				12,
+				{
+					"ac": 15,
+					"condition": "with {@spell mage armor}",
+					"braces": true
+				}
+			],
+			"hp": {
+				"formula": "9d6 + 18",
+				"average": 49
+			},
+			"speed": {
+				"walk": 30,
+				"fly": 30
+			},
+			"str": 8,
+			"dex": 14,
+			"con": 14,
+			"int": 10,
+			"wis": 12,
+			"cha": 18,
+			"save": {
+				"cha": "+7",
+				"con": "+5"
+			},
+			"skill": {
+				"arcana": "+6",
+				"history": "+6"
+			},
+			"passive": 11,
+			"resist": [
+				"fire"
+			],
+			"languages": [
+				"Common",
+				"Draconic",
+				"Dwarvish",
+				"Elvish"
+			],
+			"cr": "6",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Rishaal is a 9th-level spellcaster. His spellcasting ability is Charisma. Spell Save {@dc 16}, +8 to hit."
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell fire bolt}",
+								"{@spell light}",
+								"{@spell mage hand}",
+								"{@spell prestidigitation}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell absorb elements|XGE}",
+								"{@spell burning hands}",
+								"{@spell mage armor}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell Aganazzar's scorcher|XGE}",
+								"{@spell dragon's breath|XGE}",
+								"{@spell scorching ray}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell ashardalon's stride|FTD}",
+								"{@spell fireball}",
+								"{@spell flame arrows|XGE}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell wall of fire}"
+							],
+							"slots": 2
+						},
+						"5": {
+							"spells": [
+								"{@spell immolation|XGE}"
+							],
+							"slots": 1
+						}
+					},
+					"ability": "cha",
+					"type": "spellcasting"
+				}
+			],
+			"actionTags": [
+				"Breath Weapon"
+			],
+			"languageTags": [
+				"C",
+				"DR",
+				"D",
+				"E"
+			],
+			"spellcastingTags": [
+				"O"
+			],
+			"hasFluff": true,
+			"token": {
+				"name": "Rishaal the Page-Turner",
+				"source": "WDH"
+			},
+			"fluff": {
+				"name": "Rishaal the Page-Turner",
+				"source": "WDH",
+				"entries": [
+					{
+						"type": "entries",
+						"entries": [
+							{
+								"type": "entries",
+								"entries": [
+									{
+										"type": "entries",
+										"entries": [
+											"Rishaal, known as Rishaal the Page Turner is proprietor of the Book Wyrm's Treasure in Trollskull Alley"
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"action": [
+				{
+					"name": "Draconic Transformation",
+					"entries": [
+						"Ignatius can use his Action to take on a Draconic Transformation, being engulfed in flame and sprouting wings. For the next minute he gains a flying speed equal to his walking speed and can use his breath weapon bonus action."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Breath Weapon",
+					"entries": [
+						"Each creature in a 15ft cone must make a {@dc 16} Dexterity Saving Throw. On a failure, the creature takes {@damage 2d10} fire damage."
+					]
+				}
+			],
+			"damageTagsSpell": [
+				"A",
+				"C",
+				"F",
+				"I",
+				"L"
+			],
+			"savingThrowForced": [
+				"dexterity"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity"
+			]
+		},
+		{
+			"name": "Rothrim Aurview",
+			"source": "Planerift",
+			"page": 254,
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"cleric"
+				]
+			},
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"{@item full plate|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "9d8 + 9",
+				"average": 49
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 16,
+			"dex": 8,
+			"con": 12,
+			"int": 10,
+			"wis": 18,
+			"cha": 10,
+			"save": {
+				"con": "+4",
+				"wis": "+7"
+			},
+			"skill": {
+				"intimidation": "+4",
+				"religion": "+3"
+			},
+			"passive": 14,
+			"languages": [
+				"any two languages"
+			],
+			"cr": "6",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"The war priest casts one of the following spells, using Wisdom as the spellcasting ability (spell save {@dc 16}), +8 to Hit:"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell guidance}",
+								"{@spell resistance}",
+								"{@spell sacred flame}",
+								"{@spell thaumaturgy}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell cure wounds}",
+								"{@spell ensnaring strike}",
+								"{@spell sanctuary}",
+								"{@spell shield of faith}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell cloud of daggers} (bludgeoning)",
+								"{@spell spiritual weapon}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell incite greed|AI}",
+								"{@spell Melf's minute meteors|XGE}",
+								"{@spell spirit guardians}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell stoneskin}"
+							],
+							"slots": 2
+						},
+						"5": {
+							"spells": [
+								"{@spell holy weapon|XGE}"
+							],
+							"slots": 1
+						}
+					},
+					"ability": "wis",
+					"type": "spellcasting"
+				}
+			],
+			"action": [
+				{
+					"name": "Warhammer",
+					"entries": [
+						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}10 ({@damage 1d10 + 4}) bludgeoning damage."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "War Priest Attack",
+					"entries": [
+						"Rothrim makes a Warhammer attack, expending one of 4 War Priest Charges"
+					]
+				}
+			],
+			"environment": [
+				"desert",
+				"urban"
+			],
+			"soundClip": {
+				"type": "external",
+				"url": "https://5e.tools/audio/bestiary/war-priest.mp3"
+			},
+			"attachedItems": [
+				"warhammer|phb"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"X"
+			],
+			"spellcastingTags": [
+				"O"
+			],
+			"miscTags": [
+				"MW",
+				"MLW"
+			],
+			"conditionInflictSpell": [
+				"incapacitated",
+				"paralyzed",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"token": {
+				"name": "War Priest",
+				"source": "MPMM"
+			},
+			"fluff": {
+				"name": "War Priest",
+				"source": "MPMM",
+				"entries": [
+					"War priests worship deities of war, protection, and strategy. They plan tactics, lead soldiers into battle, confront enemy spellcasters, and tend to casualties. A war priest might command an army or serve as the right hand of a {@creature warlord|MPMM} (appears in {@book this book|MPMM}) on the battlefield.",
+					"War priests typically adorn themselves with a symbol of their faith. You can roll on the War Priest Holy Symbols table below, or choose one that fits your campaign.",
+					{
+						"type": "table",
+						"caption": "War Priest Holy Symbols",
+						"colLabels": [
+							"{@dice d8}",
+							"Holy Symbol"
+						],
+						"colStyles": [
+							"col-1 text-center",
+							"col-11"
+						],
+						"rows": [
+							[
+								1,
+								"Vial of iridescent liquid"
+							],
+							[
+								2,
+								"Hilt of a broken sword"
+							],
+							[
+								3,
+								"Piece of stained glass from a shrine"
+							],
+							[
+								4,
+								"Clay figurine of a {@creature ki-rin|MPMM} or another Celestial"
+							],
+							[
+								5,
+								"{@item Torch|PHB} carved so that a hand appears to be holding the flame"
+							],
+							[
+								6,
+								"Circlet of woven reeds"
+							],
+							[
+								7,
+								"Scrimshawed bone"
+							],
+							[
+								8,
+								"Vessel such as a cup, a {@item jug|PHB}, an urn, or an amphora"
+							]
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "bestiary/MPMM/War Priest.webp"
+						},
+						"credit": "Marta Nael"
+					}
+				]
+			},
+			"trait": [
+				{
+					"name": "Gilded Strike",
+					"entries": [
+						"When Rothrim makes an attack, once per day he can gain a +10 bonus to hit and the attack is a critical hit on a 15-20. On a critical hit, spectral coins come spilling out of the creature."
+					]
+				}
+			],
+			"damageTags": [
+				"B"
+			],
+			"damageTagsSpell": [
+				"F",
+				"N",
+				"O",
+				"P",
+				"R",
+				"S"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity",
+				"strength",
+				"wisdom"
+			]
+		},
+		{
+			"name": "The Revenant",
+			"source": "Planerift",
+			"page": 259,
+			"size": [
+				"M"
+			],
+			"type": "undead",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 16,
+					"from": [
+						"Armor Scraps"
+					]
+				}
+			],
+			"hp": {
+				"average": 237,
+				"formula": "25d8 + 125"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 20,
+			"dex": 18,
+			"con": 20,
+			"int": 13,
+			"wis": 16,
+			"cha": 18,
+			"save": {
+				"str": "+9",
+				"con": "+9",
+				"wis": "+7",
+				"cha": "+8"
+			},
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"passive": 13,
+			"resist": [
+				"cold",
+				"necrotic"
+			],
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"exhaustion",
+				"frightened",
+				"paralyzed",
+				"poisoned",
+				"stunned"
+			],
+			"languages": [
+				"the languages it knew in life"
+			],
+			"cr": "12",
+			"trait": [
+				{
+					"name": "Regeneration",
+					"entries": [
+						"The revenant regains 10 hit points at the start of its turn. If the revenant has less than 3 Vengence Points at the start of his turn, this trait doesn't function for that turn. The revenant's body is destroyed only if it starts its turn with 0 hit points and doesn't regenerate."
+					]
+				},
+				{
+					"name": "Rejuvenation",
+					"entries": [
+						"When the revenant's body is destroyed, its soul lingers. After 24 hours, the soul inhabits and animates another humanoid corpse on the same plane of existence and regains all its hit points. While the soul is bodiless, a {@spell wish} spell can be used to force the soul to go to the afterlife and not return."
+					]
+				},
+				{
+					"name": "Turn Immunity",
+					"entries": [
+						"The revenant is immune to effects that turn undead."
+					]
+				},
+				{
+					"name": "Vengeful Soul",
+					"entries": [
+						"Whenever the Revenant takes or deals damage, he gains a Vengence Point. The Revenant can expend Vengence points whenever he hits with attack to cause the attack to deal an addtitional {@damage 1d8} cold damage for each Vengence Point expended (maximum 5). If the Revenant expends more than 3 Vengence Points at a time, the target must also succeed on a {@dc 16} Constitution Saving Throw or suffer a level of Shiver."
+					]
+				},
+				{
+					"name": "Calling Blizzard",
+					"entries": [
+						"At the start of combat, a blizzard forms around the Revenant, evoking vengence on those who dare approch him. In a 15ft radius, while active, creatures who enter the area for the first time on their turn or start their turn within the blizzard:",
+						"- Take {@damage 2d6} Cold Damage",
+						"- Take {@damage 2d8} Cold Damage if they hit the Revenant with an attack while within the blizzard"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The revenant makes two Frost Axe attacks, one of which can be replaced with an Icy Grasp and the other with a Polar Ray."
+					]
+				},
+				{
+					"name": "Frost Axe",
+					"entries": [
+						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}14 ({@damage 2d6 + 7}) slashing damage + 7 ({@damage 2d6}) cold damage."
+					]
+				},
+				{
+					"name": "Icy Grasp {@recharge 5}",
+					"entries": [
+						"{@atk msa} {@hit 9} to hit, reach 5ft., one target. {@h} 33({@damage 4d8 + 15}) cold damage. The target must succeed on a {@dc 16} Constitution Saving Throw or suffer a level of Shiver."
+					]
+				},
+				{
+					"name": "Polar Ray",
+					"entries": [
+						"{@atk rw} {@hit 9} to hit, reach 5 ft., one target. {@h} 19({@damage 2d10 + 8}) cold damage and the target's movement speed is reduced by 10 feet until the end of their next turn."
+					]
+				}
+			],
+			"environment": [
+				"arctic",
+				"desert",
+				"forest",
+				"hill",
+				"swamp",
+				"urban"
+			],
+			"soundClip": {
+				"type": "external",
+				"url": "https://5e.tools/audio/bestiary/revenant.mp3"
+			},
+			"traitTags": [
+				"Regeneration",
+				"Rejuvenation",
+				"Turn Immunity"
+			],
+			"senseTags": [
+				"D"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"LF"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"token": {
+				"name": "Revenant",
+				"source": "MM"
+			},
+			"fluff": {
+				"name": "Revenant",
+				"source": "MM",
+				"entries": [
+					{
+						"type": "entries",
+						"entries": [
+							{
+								"type": "entries",
+								"entries": [
+									"A revenant forms from the soul of a mortal who met a cruel and undeserving fate. It claws its way back into the world to seek revenge against the one who wronged it. The revenant reclaims its mortal body and superficially resembles a zombie. However, instead of lifeless eyes, a revenant's eyes burn with resolve and flare in the presence of its adversary. If the revenant's original body was destroyed or is otherwise unavailable, the spirit of the revenant enters another humanoid corpse. Regardless of the body the revenant uses as a vessel, its adversary always recognizes the revenant for what it truly is.",
+									{
+										"type": "entries",
+										"name": "Hunger for Revenge",
+										"entries": [
+											"A revenant has only one year to exact revenge. When its adversary dies, or if the revenant fails to kill its adversary before its time runs out, it crumbles to dust and its soul fades into the afterlife. If its foe is too powerful for the revenant to destroy on its own, it seeks worthy allies to help it fulfill its quest."
+										]
+									},
+									{
+										"name": "Divine Justice",
+										"type": "entries",
+										"entries": [
+											"No magic can hide a creature pursued by a revenant, which always knows the direction and distance between it and the target of its vengeance. In cases where the revenant seeks revenge against more than one adversary, it pursues them one at a time, starting with the creature that dealt it the killing blow. If the revenant's body is destroyed, its soul flies forth to seek out a new corpse in which to resume its hunt."
+										]
+									},
+									{
+										"name": "Undead Nature",
+										"type": "entries",
+										"entries": [
+											"A revenant doesn't require air, food, drink, or sleep."
+										]
+									}
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "bestiary/MM/Revenant.webp"
+						}
+					}
+				]
+			},
+			"miscTags": [
+				"MW",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Call the North",
+					"entries": [
+						"Spirits of the North are called to inhabit those dead around the Revenant, rising as undead under his control. The creatures must be of CR 4 or lower. Roll {@dice 3d4 + 4} to see the maximum amount of creatures which can be resurrected. Once the Revenant uses this action, he must expend 5 Vengence Points to do so again, only after all of the undead die."
+					]
+				},
+				{
+					"name": "Frosty Escape",
+					"entries": [
+						"While his blizzard is active, the revenant can teleport to any point within the blizzard as a bonus action. All creatures within a 5ft radius of the point where he leaves and arrives take {@damage 1d6} cold damage."
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Relentless Attack (2 Actions)",
+					"entries": [
+						"The Revenant makes a Polar Ray or Frost Axe attack"
+					]
+				},
+				{
+					"name": "Icy Grasp (3 Actions)",
+					"entries": [
+						"The Revenant makes an Icy Grasp attack"
+					]
+				},
+				{
+					"name": "Empower Storm (1 Action)",
+					"entries": [
+						"Until the end of the Revenant's next turn, the blizzard picks up in intensity. The damage die of the blizzard increases by one and creatures who end their turn within it must make a {@dc 16} Constitution Saving Throw or gain a level of Shiver."
+					]
+				}
+			],
+			"damageTags": [
+				"C",
+				"S"
+			],
+			"savingThrowForced": [
+				"constitution"
+			]
+		},
+		{
+			"name": "Shifting Behemoth",
+			"source": "Planerift",
+			"page": 25,
+			"size": [
+				"H"
+			],
+			"type": "monstrosity",
+			"alignment": [
+				"N",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 16,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "18d20 + 90",
+				"average": 279
+			},
+			"speed": {
+				"walk": 50,
+				"climb": 40
+			},
+			"str": 24,
+			"dex": 16,
+			"con": 20,
+			"int": 6,
+			"wis": 14,
+			"cha": 18,
+			"skill": {
+				"perception": "+6",
+				"stealth": "+7"
+			},
+			"senses": [
+				"darkvision 90 ft."
+			],
+			"passive": 16,
+			"immune": [
+				{
+					"special": "Defensive Affinity"
+				}
+			],
+			"languages": [
+				"Draconic"
+			],
+			"cr": "11",
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The Shifting Behemoth makes three attacks: one with its bite and two with its claws"
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}14 ({@damage 1d12 + 7}) piercing damage + 7({@damage 2d6}) Offensive Affinity damage."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}11 ({@damage 1d6 + 7}) slashing damage + 7({@damage 2d6}) Offensive Affinity damage."
+					]
+				},
+				{
+					"name": "Elemental Breath {@recharge 5}",
+					"entries": [
+						"The Shifting Behemoth exhales a line of lightning that is 20 feet long and 5 feet wide. Each creature in that line must make a {@dc 16} Dexterity saving throw, taking 66 ({@damage 12d10}) Offensive Affinity damage on a failed save, or half as much damage on a successful one."
+					]
+				}
+			],
+			"environment": [
+				"underdark"
+			],
+			"soundClip": {
+				"type": "external",
+				"url": "https://5e.tools/audio/bestiary/behir.mp3"
+			},
+			"senseTags": [
+				"D"
+			],
+			"actionTags": [
+				"Breath Weapon",
+				"Multiattack",
+				"Swallow"
+			],
+			"languageTags": [
+				"DR"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"token": {
+				"name": "Behir",
+				"source": "MM"
+			},
+			"fluff": {
+				"name": "Behir",
+				"source": "MM",
+				"entries": [
+					{
+						"type": "entries",
+						"entries": [
+							{
+								"type": "entries",
+								"entries": [
+									"The serpentine behir crawls along floors and clambers up walls to reach its prey. Its lightning breath can incinerate most creatures, even as more powerful foes are constricted in its coils and eaten alive.",
+									"A behir's monstrous form resembles a combination of centipede and crocodile. Its scaled hide ranges from ultramarine to deep blue in color, fading to pale blue on its underside.",
+									{
+										"name": "Cavern Predators",
+										"type": "entries",
+										"entries": [
+											"Behirs lair in places inaccessible to other creatures, favoring locations where would-be intruders must make a harrowing climb to reach them. Deep pits, high caves in cliff walls, and caverns reached only by narrow, twisting tunnels are prime sites for a behir ambush. A behir's dozen legs allow it to scramble through its lair site with ease. When not climbing, it moves even faster by folding its legs beside its body and slithering like a snake.",
+											"Behirs swallow their prey whole, after which they enter a period of dormancy while they digest. While dormant, a behir chooses a hiding place where intruders in its lair might overlook it."
+										]
+									},
+									{
+										"name": "Foes of the Dragons",
+										"type": "entries",
+										"entries": [
+											"In times long forgotten, giants and dragons engaged in seemingly endless war. Storm giants created the first behirs as weapons against the dragons, and behirs retain a natural hatred for dragonkind.",
+											"A behir never makes its lair in an area it knows to be inhabited by a dragon. If a dragon attempts to establish a lair within a few dozen miles of a behir's lair, the behir is compelled to kill the dragon or drive it off. Only if the dragon proves too powerful to fight does a behir back down, seeking out a new lair site a great distance away."
+										]
+									}
+								]
+							},
+							{
+								"type": "insetReadaloud",
+								"entries": [
+									{
+										"type": "quote",
+										"entries": [
+											"I've already eaten three giant bats, six troglodytes, and a mind flayer today, but that's okay. Plenty of room in my belly for you and your friends."
+										],
+										"by": "Lludd the behir, confronting adventurers in the Lost Caverns of Tsojcanth"
+									}
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "bestiary/MM/Behir.webp"
+						}
+					}
+				]
+			},
+			"trait": [
+				{
+					"name": "Chaotic Embuement",
+					"entries": [
+						"The Shifting Behemoth's fur shimmers and glows with energy, gaining an adaptive affinity to certain damage types. Whenever the Shifting Behemoth takes elemental damage, its fur shifts, gaining Defensive Affinity to that type, and its claws and teeth shift, gaining Offensive Affinity to that type. ",
+						"Once the Shifting Behemoth loses Defensive Affinity to one type and its opposite, (ie Fire and Cold), it can no longer gain a Defensive Affinity to either of those types.",
+						"Pairings:",
+						"- Fire/Cold",
+						"- Force/Psychic",
+						"- Radiant/Necrotic",
+						"- Lightning/Thunder",
+						"- Acid/Poison"
+					]
+				},
+				{
+					"name": "Legendary Resistance (1/Day)",
+					"entries": [
+						"If the shifting behemoth fails a saving throw, it can choose to succeed instead."
+					]
+				},
+				{
+					"name": "Shifting Strike",
+					"entries": [
+						"Whenever the Shifting Behemoth scores a critical hit against a Planetouched creature, all Golden Crystals which the creature is holding are recharged, and that creature must make a Save or Swap against their Planetouched DC. ",
+						"On a failure, the creature and their counterpart become one momentarily, rendering them unable to take actions or bonus actions and their hit points averaged. The creature can use a Purple Crystal to stabilize a counterpart of their choice or a Golden Crystal to ensure destabilization, rolling a {@dice d20} at the start of each of their turns to determine if they control their Eternia (10 or below) or Omnith (11 or above) character. The shifting continues until they use a Purple Crystal, during which they are unable to rest."
+					]
+				}
+			],
+			"vulnerable": [
+				{
+					"special": "Offensive Affinity"
+				}
+			],
+			"legendary": [
+				{
+					"name": "Minor Elemental Burst (1 Action)",
+					"entries": [
+						"The Shifting Behemoth casts {@spell Color Spray} or {@spell Chaos Bolt}, requiring no components"
+					]
+				},
+				{
+					"name": "Major Elemental Burst (2 Actions)",
+					"entries": [
+						"The Shifting Behemoth casts {@spell Hypnotic Pattern} or {@spell Elemental Bane}, requiring no components"
+					]
+				},
+				{
+					"name": "Prismatic Shimmer (3 Actions)",
+					"entries": [
+						"The Shifting Behemoth lets out a burst of colorful light, disabling its Defensive Affinity and casting {@spell Prismatic Spray}, requiring no components. If the rays hit a target, that damage type becomes an available option to change the Shifting Behemoth's Offensive Affinity to."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"bonus": [
+				{
+					"name": "Fling",
+					"entries": [
+						"If the Shifting Behemoth hit a creature with its bite attack, it can make a contested grapple check against that creature. On a success, the creature is {@condition grappled} and the Shifting Behemoth throws the creature up to 30ft away. If the creature hits an object or other creature along its path, it takes falling damage as if it had fallen that distance."
+					]
+				}
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"savingThrowForced": [
+				"dexterity"
+			]
+		},
+		{
+			"name": "Inferness",
+			"source": "Planerift",
+			"page": 173,
+			"size": [
+				"G"
+			],
+			"type": {
+				"type": "giant",
+				"tags": [
+					"titan"
+				]
+			},
+			"alignment": [
+				"L",
+				"E"
+			],
+			"alignmentPrefix": "typically ",
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "20d20 + 140",
+				"average": 350
+			},
+			"speed": {
+				"walk": 60
+			},
+			"str": 24,
+			"dex": 14,
+			"con": 24,
+			"int": 12,
+			"wis": 16,
+			"cha": 12,
+			"skill": {
+				"athletics": "+12",
+				"perception": "+8"
+			},
+			"senses": [
+				"truesight 120 ft."
+			],
+			"passive": 18,
+			"resist": [
+				"cold",
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from nonmagical attacks",
+					"cond": true
+				}
+			],
+			"immune": [
+				"fire"
+			],
+			"conditionImmune": [
+				"charmed",
+				"exhaustion",
+				"frightened",
+				"paralyzed",
+				"petrified"
+			],
+			"languages": [
+				"Giant",
+				"Primordial"
+			],
+			"cr": "15",
+			"trait": [
+				{
+					"name": "Legendary Resistance (1/Day)",
+					"entries": [
+						"If the Inferness fails a saving throw, it can choose to succeed instead."
+					]
+				},
+				{
+					"name": "Siege Monster",
+					"entries": [
+						"The Inferness deals double damage to objects and structures."
+					]
+				},
+				{
+					"name": "Rising Temperatures",
+					"entries": [
+						"The Inferness' heat is rising beyond control. At the start of each of her turns, she gains one charge of Heat."
+					]
+				},
+				{
+					"name": "Fire Absorption",
+					"entries": [
+						"Whenever The Inferness is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The Inferness makes one attack using Lava Blade or Lava Ball, as well as two Slam attacks."
+					]
+				},
+				{
+					"name": "Lava Blade",
+					"entries": [
+						"{@atk mw} {@hit 11} to hit, reach 30 ft., one target. {@h}12 ({@damage 1d10 + 7}) slashing damage plus ({@damage 2d8}) fire damage for each level of Heat."
+					]
+				},
+				{
+					"name": "Lava Ball",
+					"entries": [
+						"{@atk rw} {@hit 11} to hit, range 120/480 ft., one target. {@h}13 ({@damage 1d12 + 7}) bludgeoning damage plus 7 ({@damage 2d6}) fire damage for each level of Heat, and the target must succeed on a {@dc 17} Strength saving throw or have the {@condition prone} condition."
+					]
+				},
+				{
+					"name": "Slam",
+					"entries": [
+						"{@atk mw} {@hit 11} to hit, reach 20 ft., one target. {@h}11 ({@damage 1d8 + 7}) bludgeoning damage."
+					]
+				},
+				{
+					"name": "Lava Wave {@recharge 5}",
+					"entries": [
+						"The Inferness emits a wave of lava from its blade, hands, or mouth in a 90-foot cone. Each creature in that area must make a {@dc 17} Dexterity saving throw. On a failed save, a creature takes 55 ({@damage 10d10}) fire damage and has the {@condition restrained} condition from being embedded in hardening rock. A creature can make a {@dc 17} Strength ({@skill Athletics}) check as an action, freeing itself or a creature within reach from the rock on a success. The rock has AC 17 and 40 hit points, and it is immune to fire, poison, and psychic damage. On a successful save, a creature takes half as much damage only."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Earth-Shaking Movement",
+					"entries": [
+						"The Inferness moves up to its speed and then sends a shock wave through the ground in a 60-foot-radius circle centered on itself. Each creature on the ground in that area that is {@status concentration||concentrating} must succeed on a {@dc 15} Constitution saving throw or lose {@status concentration}."
+					]
+				},
+				{
+					"name": "Incendiary Smoke",
+					"entries": [
+						"The Inferness causes smoke and white-hot embers to billow from its skin, filling a 30-foot-radius sphere centered on itself that moves with it. While the scion's skin billows smoke, ranged attacks against the scion are made with disadvantage. A creature that moves into the smoke for the first time on a turn or starts its turn there must succeed on a {@dc 17} Constitution saving throw or take 7 ({@damage 2d6}) fire damage. The scion's skin stops billowing smoke after 1 minute, when the scion dies, or when the scion uses this bonus action to stop the smoke."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "Inferness",
+				"source": "Planerift"
+			},
+			"traitTags": [
+				"Damage Absorption",
+				"Legendary Resistances",
+				"Magic Resistance",
+				"Siege Monster"
+			],
+			"senseTags": [
+				"U"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"GI",
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW",
+				"AOE"
+			],
+			"conditionInflict": [
+				"prone|undefined",
+				"restrained|undefined"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"token": {
+				"name": "Scion of Surtur",
+				"source": "BGG"
+			},
+			"fluff": {
+				"name": "Scion of Surtur",
+				"source": "BGG",
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "bestiary/BGG/Scion of Surtur.webp"
+						}
+					}
+				],
+				"entries": [
+					{
+						"type": "entries",
+						"entries": [
+							{
+								"type": "entries",
+								"entries": [
+									"A scion of Surtur slumbering at the peak of a volcano causes an unending plume of smoke to rise, sometimes lit from below by fiery bursts of lava. As the scion dreams of battle—perhaps a battle to rouse Annam from seclusion by uniting the giants or a war to conquer all in Surtur's name—the volcano rumbles and spews molten rage.",
+									"If intruders disturb its resting place, the fire scion's cradle rises as a bipedal juggernaut of molten rock. Sometimes miners risk their lives to find rich veins of ore in a scion's volcano, or misguided fire cultists offer sacrifices meant to appease or awaken the volcano, and the awakened cradle defies all their expectations. Like a living volcano, the cradle hurls balls of magma at intruders, exhales fiery gases, and causes molten stone to erupt from the ground around it.",
+									"If the cradle is destroyed, the scion of Surtur inside it awakens. Standing 60 feet tall, the scion's form is shrouded in a continual cloud of billowing ash and smoke. The awakened scion forms a blade of lava in its mighty hand and schemes to resume its ancient campaigns of conquest, preferably at the head of a fire giant army.",
+									{
+										"type": "quote",
+										"entries": [
+											"When a volcanic eruption makes me concerned, not just for the fate of settlements and wildlife nearby, but that there might be a much more personal sort of violence heading my way, I begin to question my life choices."
+										],
+										"by": "Bigby"
+									}
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"name": "Scions of Giants' Gods",
+						"entries": [
+							"Giants are descended from the All-Father, Annam, and his children. But scions of giants' gods boast a greater claim: they are Annam's grandchildren, and they occupy a privileged place among giants. On some worlds, these scions ruled the first empires of giants until Annam retreated into seclusion. On other worlds, the scions guard their birthplaces (which are rich in elemental magic) or hold the substance of the world together. (See \" Giants of Myth \" in chapter 3 for additional inspiration.)",
+							"Scions of giants' gods are enormously powerful beings who infuse the world around them with primeval magic. In many worlds, they slumber and have become part of the landscape. In this case, each scion is enclosed in stasis inside a powerful Elemental called a cradle. The cradle protects the slumbering scion and follows its subconscious wishes, including driving off intruders. But if the cradle dies, the scion within fully awakens."
+						]
+					},
+					{
+						"type": "entries",
+						"entries": [
+							{
+								"type": "entries",
+								"name": "Regional Effects",
+								"entries": [
+									"The region surrounding a scion of Surtur is altered by the giant's magic, creating one or more of the following effects:",
+									{
+										"type": "list",
+										"style": "list-hang-notitle",
+										"items": [
+											{
+												"type": "item",
+												"name": "Abundant Ore",
+												"entry": "Veins of precious metals and ore are more common within 6 miles of the scion."
+											},
+											{
+												"type": "item",
+												"name": "Desertification",
+												"entry": "Precipitation is almost nonexistent within 6 miles of the scion, parching the land and withering most plant life."
+											},
+											{
+												"type": "item",
+												"name": "Empowered Fire Giants",
+												"entry": "Fire giants within 1,000 feet of the scion gain a +8 bonus to attack and damage rolls."
+											}
+										]
+									},
+									"If the scion dies, existing ore remains, but new veins of ore stop forming. The other effects end immediately."
+								]
+							}
+						]
+					}
+				]
+			},
+			"damageTagsLegendary": [
+				"F"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution"
+			],
+			"save": {
+				"str": "+12",
+				"con": "+12"
+			},
+			"damageTags": [
+				"B",
+				"F",
+				"S"
+			],
+			"savingThrowForced": [
+				"constitution",
+				"dexterity",
+				"strength"
+			]
+		},
+		{
+			"name": "Giant Fire Snake",
+			"source": "Planerift",
+			"page": 324,
+			"size": [
+				"H"
+			],
+			"type": "beast",
+			"alignment": [
+				"U"
+			],
+			"ac": [
+				12
+			],
+			"hp": {
+				"average": 60,
+				"formula": "8d12 + 8"
+			},
+			"speed": {
+				"walk": 30,
+				"swim": 30
+			},
+			"str": 19,
+			"dex": 14,
+			"con": 12,
+			"int": 1,
+			"wis": 10,
+			"cha": 3,
+			"skill": {
+				"perception": "+2"
+			},
+			"senses": [
+				"blindsight 10 ft."
+			],
+			"passive": 12,
+			"cr": "2",
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 6} to hit, reach 10 ft., one creature. {@h}11 ({@damage 2d6 + 4}) piercing damage + 7 ({@damage 1d6}) fire damage."
+					]
+				},
+				{
+					"name": "Constrict",
+					"entries": [
+						"{@atk mw} {@hit 6} to hit, reach 5 ft., one creature. {@h}13 ({@damage 2d8 + 4}) bludgeoning damage + 7 ({@damage 2d6}) fire damage, and the target is {@condition grappled} (escape {@dc 16}). Until this grapple ends, the creature is {@condition restrained}, and the snake can't constrict another target."
+					]
+				}
+			],
+			"environment": [
+				"desert",
+				"forest",
+				"swamp",
+				"underdark",
+				"underwater"
+			],
+			"soundClip": {
+				"type": "external",
+				"url": "https://5e.tools/audio/bestiary/giant-constrictor-snake.mp3"
+			},
+			"senseTags": [
+				"B"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"conditionInflict": [
+				"grappled|undefined",
+				"restrained|undefined"
+			],
+			"token": {
+				"name": "Giant Constrictor Snake",
+				"source": "MM"
+			},
+			"trait": [
+				{
+					"name": "Fire Aura",
+					"entries": [
+						"At the start of each of the giant fire snake's turns, each creature within 5 feet of it takes 10 ({@dice 2d6}) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. A creature that touches the giant fire snake or hits it with a melee attack while within 5 feet of it takes 10 ({@dice 2d6}) fire damage."
+					]
+				}
+			],
+			"immune": [
+				"fire"
+			],
+			"resist": [
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non magical attacks",
+					"cond": true
+				}
+			],
+			"conditionImmune": [
+				"exhaustion",
+				"grappled",
+				"paralyzed",
+				"petrified",
+				"poisoned",
+				"prone",
+				"restrained",
+				"stunned"
+			],
+			"damageTags": [
+				"B",
+				"F",
+				"P"
+			]
+		},
+		{
+			"name": "Pyrolion",
+			"source": "Planerift",
+			"page": 331,
+			"size": [
+				"L"
+			],
+			"type": "beast",
+			"alignment": [
+				"U"
+			],
+			"ac": [
+				12
+			],
+			"hp": {
+				"average": 26,
+				"formula": "4d10 + 4"
+			},
+			"speed": {
+				"walk": 50
+			},
+			"str": 17,
+			"dex": 15,
+			"con": 13,
+			"int": 3,
+			"wis": 12,
+			"cha": 8,
+			"skill": {
+				"perception": "+3",
+				"stealth": "+6"
+			},
+			"passive": 13,
+			"cr": "1",
+			"trait": [
+				{
+					"name": "Keen Smell",
+					"entries": [
+						"The lion has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
+					]
+				},
+				{
+					"name": "Pack Tactics",
+					"entries": [
+						"The lion has advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally isn't {@condition incapacitated}."
+					]
+				},
+				{
+					"name": "Pounce",
+					"entries": [
+						"If the lion moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a {@dc 13} Strength saving throw or be knocked {@condition prone}. If the target is {@condition prone}, the lion can make one bite attack against it as a bonus action."
+					]
+				},
+				{
+					"name": "Running Leap",
+					"entries": [
+						"With a 10-foot running start, the lion can long jump up to 25 feet."
+					]
+				},
+				{
+					"name": "Fire Aura",
+					"entries": [
+						"At the start of each of the Pyrolion's turns, each creature within 5 feet of it takes 7 ({@dice 2d6}) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. A creature that touches the lion or hits it with a melee attack while within 5 feet of it takes 7 ({@dice 2d6}) fire damage."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) piercing damage + 3 ({@damage 1d6}) fire damage."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage + 3 ({@damage 1d6}) fire damage.."
+					]
+				}
+			],
+			"environment": [
+				"desert",
+				"grassland",
+				"hill",
+				"mountain"
+			],
+			"soundClip": {
+				"type": "external",
+				"url": "https://5e.tools/audio/bestiary/lion.mp3"
+			},
+			"traitTags": [
+				"Keen Senses",
+				"Pack Tactics",
+				"Pounce"
+			],
+			"miscTags": [
+				"MW",
+				"AOE"
+			],
+			"conditionInflict": [
+				"prone|undefined"
+			],
+			"token": {
+				"name": "Lion",
+				"source": "MM"
+			},
+			"immune": [
+				"fire"
+			],
+			"resist": [
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non magical attacks",
+					"cond": true
+				}
+			],
+			"conditionImmune": [
+				"exhaustion",
+				"grappled",
+				"paralyzed",
+				"petrified",
+				"poisoned",
+				"prone",
+				"restrained",
+				"stunned"
+			],
+			"damageTags": [
+				"F",
+				"P",
+				"S"
+			],
+			"savingThrowForced": [
+				"strength"
+			]
+		},
+		{
+			"name": "Juvenile Phoenix",
+			"source": "Planerift",
+			"page": 206,
+			"size": [
+				"M"
+			],
+			"type": "elemental",
+			"alignment": [
+				"N"
+			],
+			"alignmentPrefix": "Typically ",
+			"ac": [
+				13
+			],
+			"hp": {
+				"average": 67,
+				"formula": "5d20 + 15"
+			},
+			"speed": {
+				"walk": 20,
+				"fly": 120
+			},
+			"str": 19,
+			"dex": 18,
+			"con": 17,
+			"int": 2,
+			"wis": 14,
+			"cha": 14,
+			"save": {
+				"wis": "+7",
+				"cha": "+6"
+			},
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"passive": 12,
+			"resist": [
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from nonmagical attacks",
+					"cond": true
+				}
+			],
+			"immune": [
+				"fire"
+			],
+			"conditionImmune": [
+				"exhaustion",
+				"grappled",
+				"paralyzed",
+				"petrified",
+				"poisoned",
+				"prone",
+				"restrained",
+				"stunned"
+			],
+			"cr": "3",
+			"trait": [
+				{
+					"name": "Fiery Death and Rebirth",
+					"entries": [
+						"If the phoenix dies, it explodes. Each creature in 60-foot-radius sphere centered on the phoenix must make a {@dc 15} Dexterity saving throw, taking 7 ({@damage 2d6}) fire damage on a failed save, or half as much damage on a successful one. The fire ignites flammable objects in the area that aren't being worn or carried.",
+						"The explosion destroys the phoenix's body and leaves behind an egg-shaped cinder, which weighs 5 pounds, has an AC of 12 and 20 hit points. On the Phoenix's turn, roll a {@dice d20}. On a 15 or higher, the Phoenix is reborn at half health. If the cinder is destroyed, the pheonix cannot be reborn."
+					]
+				},
+				{
+					"name": "Flyby",
+					"entries": [
+						"The phoenix doesn't provoke {@action opportunity attack||opportunity attacks} when it flies out of an enemy's reach."
+					]
+				},
+				{
+					"name": "Fire Aura",
+					"entries": [
+						"At the start of each of the phoenix's turns, each creature within 5 feet of it takes 7 ({@dice 2d6}) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. A creature that touches the phoenix or hits it with a melee attack while within 5 feet of it takes 7 ({@dice 2d6}) fire damage."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"The phoenix makes two attacks: one Beak attack and one Fiery Talons attack."
+					]
+				},
+				{
+					"name": "Beak",
+					"entries": [
+						"{@atk mw} {@hit 6} to hit, reach 15 ft., one target. {@h}6 ({@damage 1d4 + 4}) fire damage."
+					]
+				},
+				{
+					"name": "Fiery Talons",
+					"entries": [
+						"{@atk mw} {@hit 6} to hit, reach 15 ft., one target. {@h}6 ({@damage 1d4 + 4}) fire damage."
+					]
+				}
+			],
+			"environment": [
+				"desert",
+				"mountain"
+			],
+			"soundClip": {
+				"type": "external",
+				"url": "https://5e.tools/audio/bestiary/phoenix.mp3"
+			},
+			"traitTags": [
+				"Flyby",
+				"Illumination",
+				"Legendary Resistances",
+				"Siege Monster"
+			],
+			"senseTags": [
+				"D"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"token": {
+				"name": "Phoenix",
+				"source": "MPMM"
+			},
+			"fluff": {
+				"name": "Phoenix",
+				"source": "MPMM",
+				"entries": [
+					{
+						"type": "quote",
+						"entries": [
+							"To rise like a phoenix from the ashes–so many use that quaint colloquialism. Little do they know about the true horror of such a rebirth."
+						],
+						"by": "Mordenkainen"
+					},
+					"Releasing a phoenix from the Inner Planes creates an explosion of fire that spreads across the sky. An enormous fiery bird forms in the center of the flames and smoke—an elder Elemental possessed by a need to burn everything to ash. The phoenix rarely stays in one place for long as it strives to transform the world into an inferno."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "internal",
+							"path": "bestiary/MPMM/Phoenix.webp"
+						},
+						"credit": "Ilya Shkipin"
+					}
+				]
+			},
+			"damageTags": [
+				"F"
+			],
+			"savingThrowForced": [
+				"dexterity"
+			]
+		}
+	],
+	"legendaryGroup": [
+		{
+			"name": "Inferness",
+			"lairActions": [
+				"- All creatures within the forge must succeed a DC 17 Constitution Saving Throw or take 1d6 fire damage for each level of Heat.",
+				"- If Heat is 3 or higher, all metal objects are treated as under the effects of {@spell heat metal} until the weilder or wearer takes cold damage, after which the object is immune to the effect.",
+				"- If Heat is 4 or higher, all creatures who are not immune to fire damage suffer a point of exhaustion"
+			],
+			"regionalEffects": [
+				"- Metal and ores in the area become weaker and more malleable",
+				"- Temperature's skyrocket",
+				"- Magma and lava becomes unstable and superheated, burning through even the thickest of metals.",
+				"- Elemental creatures arise from the lava, attacking creatures in a firey rage."
+			],
+			"mythicEncounter": [],
+			"source": "Planerift"
+		}
+	]
+}

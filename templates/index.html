@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <style>
+        body {
+            background-color: #2f2f2f; /* Dark grey background */
+            color: white; /* White text for contrast */
+            font-family: Arial, sans-serif;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        /* Additional styling for table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #444; /* Slightly lighter grey for even rows */
+        }
+
+        tr:hover {
+            background-color: #555; /* Hover effect */
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #444;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Item List</h1>
+
+    <!-- Checkbox Form -->
+    <form id="columns-form">
+        <div id="columns-container"></div>
+        <button type="submit">Load Items</button>
+    </form>
+
+    <!-- Table for displaying items -->
+    <table id="items-table">
+        <thead>
+            <tr id="header-row"></tr>
+        </thead>
+        <tbody id="items-body">
+            <!-- Item rows will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        let currentSortColumn = null;
+        let currentSortOrder = "ASC";
+
+        // Fetch the available columns from the backend
+        async function fetchColumns() {
+            const response = await fetch('/get_columns');
+            const columns = await response.json();
+            populateColumnsForm(columns);
+        }
+
+        // Populate the form with checkboxes for each column
+        function populateColumnsForm(columns) {
+            const container = document.getElementById("columns-container");
+            columns.forEach(column => {
+                const label = document.createElement("label");
+                label.innerHTML = `<input type="checkbox" name="columns" value="${column}" checked> ${column}`;
+                container.appendChild(label);
+            });
+        }
+
+        // When the form is submitted
+        document.getElementById("columns-form").onsubmit = async function (event) {
+            event.preventDefault();
+            const selectedColumns = Array.from(document.querySelectorAll('input[name="columns"]:checked')).map(input => input.value);
+            const response = await fetch(`/get_items?columns=${selectedColumns.join("&columns=")}`);
+            const data = await response.json();
+            populateTable(data, selectedColumns);
+        };
+
+        // Populate the table with data
+        function populateTable(items, selectedColumns) {
+            const tableBody = document.getElementById("items-body");
+            const headerRow = document.getElementById("header-row");
+            tableBody.innerHTML = "";
+            headerRow.innerHTML = "";
+
+            // Create table header based on selected columns
+            selectedColumns.forEach(column => {
+                const th = document.createElement("th");
+                th.textContent = column.charAt(0).toUpperCase() + column.slice(1);
+                th.setAttribute("data-column", column);
+                th.onclick = () => sortTable(column);
+                headerRow.appendChild(th);
+            });
+
+            // Populate table rows based on selected columns
+            items.forEach(item => {
+                const row = document.createElement("tr");
+                selectedColumns.forEach(column => {
+                    const cell = document.createElement("td");
+                    cell.textContent = item[column];
+                    row.appendChild(cell);
+                });
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Sort the table by column
+        function sortTable(column) {
+            let order = "ASC";
+            if (currentSortColumn === column && currentSortOrder === "ASC") {
+                order = "DESC";
+            }
+            currentSortColumn = column;
+            currentSortOrder = order;
+
+            // Fetch sorted items
+            const selectedColumns = Array.from(document.querySelectorAll('input[name="columns"]:checked')).map(input => input.value);
+            fetch(`/get_items?columns=${selectedColumns.join("&columns=")}&sort_by=${column}&sort_order=${order}`)
+                .then(response => response.json())
+                .then(data => populateTable(data, selectedColumns));
+        }
+
+        // Initialize the page
+        fetchColumns();
+    </script>
+</body>
+</html>
