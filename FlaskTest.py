@@ -21,57 +21,47 @@ def query_items(columns, sort_by=None, sort_order="ASC"):
                     WHEN 'common' THEN 1
                     WHEN 'uncommon' THEN 2
                     WHEN 'rare' THEN 3
-                    WHEN 'very rare' THEN 4
+                    WHEN 'epic' THEN 4
                     WHEN 'legendary' THEN 5
-                    WHEN 'artifact' THEN 6
-                    ELSE 7
-                END {sort_order}
-        """.format(sort_order=sort_order)
-    elif sort_by == "value":
-        query += f" ORDER BY CAST(value AS REAL) {sort_order}"
-    elif sort_by:
-        query += f" ORDER BY {sort_by} {sort_order}"
+                END
+        """
+    query += f" {sort_order}"
 
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute(query)
-    rows = cursor.fetchall()
+    items = conn.execute(query).fetchall()
     conn.close()
-    return [dict(row) for row in rows]
+    return items
 
-# Fetch column names from the database
+# Get column names from the database
 def get_column_names():
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("PRAGMA table_info(Items)")
-    columns = [column['name'] for column in cursor.fetchall()]
+    cursor = conn.execute('SELECT * FROM Items LIMIT 1')
+    column_names = [description[0] for description in cursor.description]
     conn.close()
-    return columns
+    return column_names
 
-# Route for serving the front-end
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
-# Route for fetching available columns
-@app.route("/get_columns", methods=["GET"])
+@app.route('/get_columns', methods=['GET'])
 def get_columns():
-    columns = get_column_names()
-    return jsonify(columns)
+    column_names = get_column_names()
+    return jsonify({'columns': column_names})
 
-# Route for fetching items with sorting
-@app.route("/get_items", methods=["GET"])
-def get_items():
-    columns = request.args.getlist('columns')
-    sort_by = request.args.get('sort_by')
-    sort_order = request.args.get('sort_order', 'ASC')
-    
+@app.route('/load_items', methods=['POST'])
+def load_items():
+    data = request.get_json()
+    columns = data.get('columns', [])
     if not columns:
-        columns = ['name', 'rarity', 'value']
-    
-    data = query_items(columns, sort_by, sort_order)
-    
-    return jsonify(data)
+        return jsonify({'error': 'No columns selected'}), 400
+
+    conn = get_db_connection()
+    items = query_items(columns)
+    conn.close()
+
+    items_list = [dict(item) for item in items]
+    return jsonify({'items': items_list})
 
 if __name__ == "__main__":
     app.run(debug=True)
